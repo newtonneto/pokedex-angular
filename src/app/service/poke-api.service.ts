@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { PokeApiPage } from '../dto/poke-api-page';
 import { Pokemon } from '../dto/pokemon';
+import { PokemonSpecie } from '../dto/pokemon-specie';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +28,9 @@ export class PokeApiService {
 
   public apiGetPokemon(url: string): Observable<Pokemon> {
     return this.http.get<Pokemon>(url).pipe(map((pokemon) => pokemon));
+  }
+
+  public apiGetSpecie(url: string): Observable<PokemonSpecie> {
+    return this.http.get<PokemonSpecie>(url).pipe(map((pokemon) => pokemon));
   }
 }

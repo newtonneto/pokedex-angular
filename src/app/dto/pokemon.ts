@@ -3,6 +3,7 @@ export interface Pokemon {
   name: string;
   types: Type[];
   sprites: Sprites;
+  stats: Stat[];
 }
 
 interface Type {
@@ -39,4 +40,13 @@ interface Home {
 
 interface OfficialArtwork {
   front_default: string;
+}
+
+interface Stat {
+  base_stat: number;
+  stat: StatDetail;
+}
+
+interface StatDetail {
+  name: string;
 }
