@@ -36,15 +36,15 @@ export class DetailsComponent implements OnInit {
     );
     const specie = this.pokeApiService.apiGetSpecie(`${this.urlSpecie}${id}`);
 
-    return forkJoin([pokemon, specie]).subscribe(
-      (response) => {
+    return forkJoin([pokemon, specie]).subscribe({
+      next: (response) => {
         this.pokemon = response[0];
         this.specie = response[1];
         this.isLoaded = true;
       },
-      (error) => {
+      error: (_) => {
         this.apiError = true;
-      }
-    );
+      },
+    });
   }
 }

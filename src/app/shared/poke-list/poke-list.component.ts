@@ -15,15 +15,15 @@ export class PokeListComponent implements OnInit {
   constructor(private pokeApiService: PokeApiService) {}
 
   ngOnInit(): void {
-    this.pokeApiService.apiListAllPokemons.subscribe(
-      (response) => {
+    this.pokeApiService.apiListAllPokemons.subscribe({
+      next: (response) => {
         this.allPokemonsBackup = response.results;
         this.getAllPokemons = response.results;
       },
-      (error) => {
+      error: (_) => {
         this.apiError = true;
-      }
-    );
+      },
+    });
   }
 
   public getSearchValue(value: string): void {
